@@ -111,6 +111,10 @@
 			<version>4.5.13</version> <!-- 최신 버전으로 변경 가능 -->
 		</dependency>
 
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
 	</dependencies>
 
 	<build>
