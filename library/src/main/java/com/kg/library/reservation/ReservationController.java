@@ -1,6 +1,7 @@
 package com.kg.library.reservation;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Locale;
@@ -82,7 +83,13 @@ public class ReservationController {
 		if (sessionId == null)
 			return "redirect:login";
 		dto.setMember(sessionId);
-		dto.setReservation_date(year_t + "-" + month_t + "-" + day_t);
+		
+	    // 날짜 형식을 지정하여 LocalDate로 변환
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-d");
+	    String dateStr = year_t + "-" + month_t + "-" + day_t;
+	    LocalDate reservationDate = LocalDate.parse(dateStr, formatter);
+	    
+	    dto.setReservation_date(reservationDate.toString());  // 'yyyy-MM-dd' 형식으로 설정
 		dto.setRoom_num(room);
 		String[] time = time_t.split("##");
 		dto.setReservation_time(Integer.parseInt(time[0]));

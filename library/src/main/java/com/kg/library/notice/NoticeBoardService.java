@@ -31,7 +31,7 @@ public class NoticeBoardService {
 	private HttpSession session;
 	//private String filePath = "C:\\Users\\user1\\git\\kglibrary\\library\\src\\main\\resources\\static\\img\\";
 	
-	private String bucketName = "kglibrary"; // S3 버킷 이름
+	private String bucketName = "kglibrary2"; // S3 버킷 이름
     private String s3FilePath = "static/img/"; // S3에 업로드할 경로
 
 	 @Autowired
@@ -355,7 +355,7 @@ public class NoticeBoardService {
 			return "redirect:noticeBoard";
 		}
 		NoticeBoardDTO board = mapper.noticeboard_Content(n);
-		String fileName = extractFileName(board.getImage());
+		String fileName = board.getImage() != null ? extractFileName(board.getImage()) : "";
 		String content = board.getContent().replaceAll("<br>", "\r\n");
 		board.setContent(content);
 		System.out.println("컨텐츠 = " + board.getContent());
@@ -546,11 +546,11 @@ public class NoticeBoardService {
 	public void main_board(Model model) {
 	
 	ArrayList<NoticeBoardDTO> boards = mapper.main_board();
-	for (NoticeBoardDTO board : boards) {
-	    System.out.println(board.getTitle());
-	    System.out.println(board.getNo());
-	    System.out.println(board.getWriteDate());
-		}
+//	for (NoticeBoardDTO board : boards) {
+//	    System.out.println(board.getTitle());
+//	    System.out.println(board.getNo());
+//	    System.out.println(board.getWriteDate());
+//		}
 	model.addAttribute("boards", boards);
 	}	
 

@@ -272,7 +272,7 @@ public class Ask_board_Service {
 			return "redirect:ask_board";
 		}
 		Ask_board_DTO board = mapper.ask_board_Content(n);
-		String fileName = extractFileName(board.getImage());
+		String fileName = board.getImage() != null ? extractFileName(board.getImage()) : "";
 		String content = board.getContent().replaceAll("<br>", "\r\n");
 		board.setContent(content);
 		System.out.println("컨텐츠 = " + board.getContent());

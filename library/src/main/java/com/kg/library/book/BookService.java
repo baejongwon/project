@@ -32,7 +32,8 @@ import jakarta.servlet.http.HttpSession;
 @Service
 public class BookService {
 	//private String filePath = "C:\\Users\\user1\\git\\kglibrary\\library\\src\\main\\resources\\static\\img\\";
-	private String filePath = "C:\\Users\\User\\git\\kglibrary\\library\\src\\main\\resources\\static\\img\\";
+	//private String filePath = "C:\\Users\\User\\git\\kglibrary\\library\\src\\main\\resources\\static\\img\\";
+	private String filePath = "C:\\Users\\jongwon\\git\\project\\library\\src\\main\\resources\\static\\img\\";
 	@Autowired
 	IBookMapper mapper;
 	@Autowired
